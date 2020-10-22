@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import Home from './components/Home'
+import Navigation from './components/Navigation'
+import ScareMe from './components/ScareMe'
+import { Provider, useGlobalState } from './store'
 
 function App() {
+  const currentPage = useGlobalState('currentPage')
+
+  const PageBySelection = () => {
+    switch (currentPage) {
+      case 'Home':
+        return <Home />
+      case 'Scare Me!':
+        return <ScareMe />
+      default:
+        return null
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <div className='App-Title'>Happy Halloween!</div>
+      <div className='App-Navigation'>
+        <Navigation />
+      </div>
+      <div className='App-Body'>
+        <PageBySelection />
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+const AppWrappedInProvider = () => {
+  return (
+    <Provider>
+      <App />
+    </Provider>
+  )
+}
+
+export default AppWrappedInProvider
