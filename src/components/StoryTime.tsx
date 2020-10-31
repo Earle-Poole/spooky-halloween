@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import './css/storyTime.css'
 
 const initialStoryValues = [
@@ -31,6 +31,7 @@ const initialStoryValues = [
 const StoryTime = () => {
     const [storyValues, setStoryValues] = useState(initialStoryValues)
     const [showStory, setShowStory] = useState<boolean>(false);
+    const [readStory, setReadStory] = useState<boolean>(false);
     const onChangeHandler = (index: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
         setStoryValues(storyValues.map((row, i) => index === i ? [row[0], e.target.value] : row))
     }
@@ -46,7 +47,7 @@ const StoryTime = () => {
             </div>
         )
     }
-    const story = () => {
+    const story = useCallback(() => {
         const mutableStoaryValues = [...storyValues];
         const story = `It was a ${`<mark>${mutableStoaryValues.shift()?.[1]}</mark>`} and ${`<mark>${mutableStoaryValues.shift()?.[1]}</mark>`} Halloween night. ${`<mark>${mutableStoaryValues.shift()?.[1]}</mark>`} children were out
             trick-or-treating, when they came across an old house at the end of the street. The
@@ -64,14 +65,24 @@ const StoryTime = () => {
             ${`<mark>${mutableStoaryValues.shift()?.[1]}</mark>`}! As he turned the corner, he heard the creature yell after him: “Stay away,
             little kid! I’ll ${`<mark>${mutableStoaryValues.shift()?.[1]}</mark>`} you for ${`<mark>${mutableStoaryValues.shift()?.[1]}</mark>`}!`
         return story;
-    }
+    }, [storyValues])
     const showStoryHandler = () => {
         if (storyValues.filter((value) => value[1].length).length === storyValues.length) {
             setShowStory(true);
+            setReadStory(true)
         } else {
             alert('First finish the form.')
         }
     }
+    const synth = window.speechSynthesis;
+    useEffect(() => {
+        if (readStory) {
+        console.log(synth.getVoices())
+        const utterThis = new SpeechSynthesisUtterance(story())
+        utterThis.rate = 1.2
+        synth.speak(utterThis)
+        }
+    }, [story, readStory, synth])
     return (
         <div className='StoryTime'>
             <div className="InputsHere">
