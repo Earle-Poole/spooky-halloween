@@ -1,0 +1,30 @@
+.StoryTime {
+    padding: 50px 20px 0px 20px;
+    display: flex;
+    color: orange;
+    line-height: 1.5;
+    overflow: hidden;
+    height: 100%;
+}
+.InputsHere {
+    overflow-y: overlay;
+    overflow-x: hidden;
+    width: 300px;
+}
+.InputsHere input {
+    background-color: black;
+    color: greenyellow;
+    border: none;
+    border-bottom: solid orange 1px;
+    flex: 1 1 auto;
+}
+.WordRow {
+    display: flex;
+    white-space: nowrap;
+}
+.WordRow span {
+    
+}
+.InputsHere div:first-of-type {
+    font-size: larger;
+}

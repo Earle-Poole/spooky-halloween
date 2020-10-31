@@ -3,6 +3,7 @@ import './App.css'
 import Home from './components/Home'
 import Navigation from './components/Navigation'
 import ScareMe from './components/ScareMe'
+import StoryTime from './components/StoryTime'
 import { Provider, useGlobalState } from './store'
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
         return <Home />
       case 'Scare Me!':
         return <ScareMe />
+      case `Let's Make A Story`:
+        return <StoryTime />
       default:
         return null
     }

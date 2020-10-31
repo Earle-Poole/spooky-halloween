@@ -2,7 +2,7 @@ import React from 'react'
 import { useGlobalDispatch } from '../store'
 import './css/navigation.css'
 
-const navigationOptions = ['Home', 'Scare Me!']
+const navigationOptions = ['Home', 'Scare Me!', `Let's Make A Story`]
 
 const Navigation = () => {
   const dispatch = useGlobalDispatch()
