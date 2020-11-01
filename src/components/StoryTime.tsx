@@ -77,12 +77,19 @@ const StoryTime = () => {
     const synth = window.speechSynthesis;
     useEffect(() => {
         if (readStory) {
-        console.log(synth.getVoices())
-        const utterThis = new SpeechSynthesisUtterance(story())
-        utterThis.rate = 1.2
-        synth.speak(utterThis)
+            const utterThis = new SpeechSynthesisUtterance(story())
+            utterThis.rate = 1.2
+            synth.speak(utterThis)
         }
     }, [story, readStory, synth])
+    const audioHandler = () => {
+        if (readStory) {
+            synth.pause();
+            setReadStory(false)
+        } else {
+            setReadStory(true)
+        }
+    }
     return (
         <div className='StoryTime'>
             <div className="InputsHere">
@@ -90,7 +97,7 @@ const StoryTime = () => {
                 {storyValues.map((word, index: number) => wordRow(word, index))}
             </div>
             <div className="StoryHere">
-                {showStory && <><div>Your Story:</div>
+                {showStory && <><div>Your Story: <button type="button" onClick={audioHandler}>{readStory ? 'Stop' : 'Play'}</button></div>
                     <div dangerouslySetInnerHTML={{ __html: story() }} /></>}
             </div>
         </div>
