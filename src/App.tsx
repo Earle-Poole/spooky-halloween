@@ -4,6 +4,7 @@ import Home from './components/Home'
 import Navigation from './components/Navigation'
 import ScareMe from './components/ScareMe'
 import StoryTime from './components/StoryTime'
+import WatchList from './components/WatchList'
 import { Provider, useGlobalState } from './store'
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
         return <ScareMe />
       case `Let's Make A Story`:
         return <StoryTime />
+      case 'Watch List':
+        return <WatchList />
       default:
         return null
     }
