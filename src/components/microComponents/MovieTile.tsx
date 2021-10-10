@@ -10,7 +10,7 @@ interface MovieTileProps {
 const MovieTile = ({ movieStats }: MovieTileProps) => {
   return (
     <div>
-      <img src={movieStats.url} alt="" />
+      <img width="175px" height="275px" src={movieStats.url} alt="" />
       <div>
         <span>{movieStats.title}</span>
         <span>{movieStats.releaseYear}</span>
