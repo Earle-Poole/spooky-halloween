@@ -3,7 +3,8 @@
     display: flex;
     justify-content: center;
     height: calc(100vh - 155px);
-    border: 2px solid red;
+    border: 2px solid orange;
     box-sizing: border-box;
+    overflow: auto;
 }
 
