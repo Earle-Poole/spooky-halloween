@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css'
 import Home from './components/Home'
+import MapStuff from './components/MapStuff'
 import Navigation from './components/Navigation'
 import ScareMe from './components/ScareMe'
 import StoryTime from './components/StoryTime'
@@ -20,6 +21,8 @@ function App() {
         return <StoryTime />
       case 'Watch List':
         return <WatchList />
+      case 'Map Stuff':
+        return <MapStuff />
       default:
         return null
     }

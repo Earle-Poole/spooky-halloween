@@ -1,0 +1,8 @@
+.MapStuff {
+  height: calc(100vh - 155px);
+  box-sizing: border-box;
+}
+
+.MapStuff #map {
+  height: 100%;
+}
