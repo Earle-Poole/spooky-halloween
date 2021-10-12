@@ -1,10 +1,20 @@
 .Watch-List {
-    color: whitesmoke;
-    display: flex;
-    justify-content: center;
-    height: calc(100vh - 155px);
-    border: 2px solid orange;
-    box-sizing: border-box;
-    overflow: auto;
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 155px);
+  border: 2px solid orange;
+  box-sizing: border-box;
 }
 
+.Kids,
+.Scary {
+  overflow: auto;
+  color: grey;
+  font-size: 50px;
+  text-align: center;
+  font-family: "Chiller";
+  box-sizing: border-box;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+}
