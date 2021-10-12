@@ -1,4 +1,5 @@
 import React from "react";
+import "./movieTile.css";
 
 interface MovieTileProps {
   movieStats: {
@@ -9,11 +10,11 @@ interface MovieTileProps {
 }
 const MovieTile = ({ movieStats }: MovieTileProps) => {
   return (
-    <div>
+    <div className="movieCard">
       <img width="175px" height="275px" src={movieStats.url} alt="" />
-      <div>
-        <span>{movieStats.title}</span>
-        <span>{movieStats.releaseYear}</span>
+      <div className="movieContainer">
+        <span className="movieStatsTitle">{movieStats.title}</span>
+        <span className="movieStatsYear">{movieStats.releaseYear}</span>
       </div>
     </div>
   );

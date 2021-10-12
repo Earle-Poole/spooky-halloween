@@ -1,0 +1,39 @@
+.movieCard {
+  box-shadow: 4px 4px 8px 0 #ffffffaa;
+  border-radius: 5px;
+  width: 400px;
+  margin: 15px auto;
+  padding: 10px;
+  display: flex;
+  text-align: center;
+  background-color: rgb(56, 6, 6);
+  border: 5px solid white;
+}
+
+.movieCard:hover {
+  opacity: 0.7;
+}
+
+.movieContainer {
+  margin: 0 0 0 10px;
+  width: 215px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.movieStatsTitle,
+.movieStatsYear {
+  color: grey;
+  font-size: 24px;
+  text-align: center;
+  font-family: 'Chiller';
+  display: block;
+}
+
+
+.movieStatsTitle{
+    font-size: 36px;
+    text-transform: uppercase;
+}
