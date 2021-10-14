@@ -1,31 +1,65 @@
-import { useRef } from 'react'
-import Draggable from 'react-draggable'
-import './css/mapStuff.css'
+import { useRef } from 'react';
+import Draggable from 'react-draggable';
+import './css/mapStuff.css';
+
+const infoWindowContents = (
+  place: google.maps.places.PlaceResult,
+  type: 'pumpkin-patch' | 'haunted-house'
+) => {
+  return `<div>
+        <strong>
+            ${type
+              .split('-')
+              .map((string) => string.charAt(0).toUpperCase() + string.slice(1))
+              .join(' ')}
+        </strong>
+        <div>
+            ${place.name}
+        </div>
+        <div>
+            ${place.vicinity}
+        </div>
+        <div>
+            ${place.rating} out of ${place.user_ratings_total} ratings
+        </div>
+        <div>
+            <a target="_blank" href="https://www.google.com/maps/place/${place.name
+              ?.split(' ')
+              .join('+')}/">Open in Google Maps</a>
+        </div>
+    </div>`;
+};
 
 interface UIProps {
-  map: google.maps.Map | null
+  map: google.maps.Map | null;
 }
 const UI = (props: UIProps) => {
-  let infowindow: google.maps.InfoWindow | undefined
-  const mapUIRef = useRef<HTMLDivElement>(null!)
-  const windowRef = useRef<HTMLDivElement>(null!)
+  let infowindow: google.maps.InfoWindow | undefined;
+  const mapUIRef = useRef<HTMLDivElement>(null!);
+  const windowRef = useRef<HTMLDivElement>(null!);
+  const allMarkersRef = useRef<google.maps.Marker[]>([]);
   const performNearbySearch = () => {
+    if (allMarkersRef.current.length > 0) {
+      for (let marker of allMarkersRef.current) {
+        marker.setMap(null);
+      }
+      allMarkersRef.current = [];
+    }
     if (props.map) {
-      const service = new google.maps.places.PlacesService(props.map)
+      const service = new google.maps.places.PlacesService(props.map);
       infowindow = new google.maps.InfoWindow({
         pixelOffset: new google.maps.Size(0, -25),
         zIndex: -1,
-      })
-      const mapCenter = props.map.getCenter()
+      });
+      const mapCenter = props.map.getCenter();
       if (!mapCenter) {
-        return
+        return;
       }
-      const hauntedHousesIsChecked = (
-        document.getElementById('haunted-houses') as HTMLInputElement
-      ).checked
+      const hauntedHousesIsChecked = (document.getElementById('haunted-houses') as HTMLInputElement)
+        .checked;
       const pumpkinPatchesIsChecked = (
         document.getElementById('pumpkin-patches') as HTMLInputElement
-      ).checked
+      ).checked;
 
       if (hauntedHousesIsChecked) {
         service.nearbySearch(
@@ -35,15 +69,14 @@ const UI = (props: UIProps) => {
             keyword: 'Haunted House',
           },
           (res, status) => {
-            console.log('res: ', res)
             if (status === google.maps.places.PlacesServiceStatus.OK && res) {
               for (var i = 0; i < res.length; i++) {
-                createMarker(res[i])
+                createMarker(res[i], 'haunted-house');
               }
-              props.map?.setCenter(res[0]?.geometry?.location!)
+              props.map?.setCenter(res[0]?.geometry?.location!);
             }
           }
-        )
+        );
       }
       if (pumpkinPatchesIsChecked) {
         service.nearbySearch(
@@ -53,34 +86,35 @@ const UI = (props: UIProps) => {
             keyword: 'Pumpkin Patch',
           },
           (res, status) => {
-            console.log('res: ', res)
             if (status === google.maps.places.PlacesServiceStatus.OK && res) {
               for (var i = 0; i < res.length; i++) {
-                createMarker(res[i])
+                createMarker(res[i], 'pumpkin-patch');
               }
-              props.map?.setCenter(res[0]?.geometry?.location!)
+              props.map?.setCenter(res[0]?.geometry?.location!);
             }
           }
-        )
+        );
       }
     }
-  }
-  function createMarker(place: google.maps.places.PlaceResult) {
-    if (!place.geometry || !place.geometry.location) return
+  };
+  function createMarker(
+    place: google.maps.places.PlaceResult,
+    type: 'pumpkin-patch' | 'haunted-house'
+  ) {
+    if (!place.geometry || !place.geometry.location) return;
 
     const marker = new google.maps.Marker({
       map: props.map,
       position: place.geometry.location,
-    })
+    });
 
+    allMarkersRef.current.push(marker);
     google.maps.event.addListener(marker, 'click', () => {
-      console.log('click!', place)
-      console.log('infowindow: ', infowindow)
-      infowindow?.setContent(place.name || '')
-      infowindow?.open(props.map)
-      const markerCoords = marker.getPosition()
-      infowindow?.setPosition(markerCoords)
-    })
+      infowindow?.setContent(infoWindowContents(place, type) || '');
+      infowindow?.open(props.map);
+      const markerCoords = marker.getPosition();
+      infowindow?.setPosition(markerCoords);
+    });
   }
   return (
     <div id='mapUI' ref={mapUIRef} className='MapStuff-uiWrapper'>
@@ -89,17 +123,11 @@ const UI = (props: UIProps) => {
           <div ref={windowRef} className='UI-Window'>
             <div className='UI-Check-Box-Wrapper'>
               <div>
-                <input
-                  id='haunted-houses'
-                  type='checkbox'
-                  name='haunted-houses'></input>
+                <input id='haunted-houses' type='checkbox' name='haunted-houses'></input>
                 <label htmlFor='haunted-houses'>Haunted Houses</label>
               </div>
               <div>
-                <input
-                  id='pumpkin-patches'
-                  type='checkbox'
-                  name='pumpkin-patches'></input>
+                <input id='pumpkin-patches' type='checkbox' name='pumpkin-patches'></input>
                 <label htmlFor='pumpkin-patches'>Pumpkin Patches</label>
               </div>
               <button type='button' onClick={performNearbySearch}>
@@ -110,7 +138,7 @@ const UI = (props: UIProps) => {
         </Draggable>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default UI
+export default UI;
