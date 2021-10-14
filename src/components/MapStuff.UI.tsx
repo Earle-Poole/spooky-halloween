@@ -1,49 +1,87 @@
-import { useRef } from 'react';
-import Draggable from 'react-draggable';
-import './css/mapStuff.css';
+import { useRef } from 'react'
+import Draggable from 'react-draggable'
+import './css/mapStuff.css'
 
 interface UIProps {
-  map: google.maps.Map | null;
+  map: google.maps.Map | null
 }
 const UI = (props: UIProps) => {
-  const mapUIRef = useRef<HTMLDivElement>(null!);
-  const windowRef = useRef<HTMLDivElement>(null!);
+  let infowindow: google.maps.InfoWindow | undefined
+  const mapUIRef = useRef<HTMLDivElement>(null!)
+  const windowRef = useRef<HTMLDivElement>(null!)
   const performNearbySearch = () => {
     if (props.map) {
-      const mapCenter = props.map.getCenter();
+      const service = new google.maps.places.PlacesService(props.map)
+      infowindow = new google.maps.InfoWindow({
+        pixelOffset: new google.maps.Size(0, -25),
+        zIndex: -1,
+      })
+      const mapCenter = props.map.getCenter()
       if (!mapCenter) {
-        return;
+        return
       }
-      const pumpkinPatchURL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${mapCenter.toUrlValue().split(',').join('%2C')}&radius=30000&keyword=pumpkin%20patch&key=${
-        process.env.REACT_APP_gMapAPIKey
-      }`;
-      const hauntedHouseURL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${mapCenter.toUrlValue().split(',').join('%2C')}&radius=30000&keyword=haunted%20house&key=${
-        process.env.REACT_APP_gMapAPIKey
-      }`;
-      console.log('pumpkinPatchURL: ', pumpkinPatchURL);
-      console.log('hauntedHouseURL: ', hauntedHouseURL);
-      const hauntedHousesIsChecked = (document.getElementById('haunted-houses') as HTMLInputElement)
-        .checked;
+      const hauntedHousesIsChecked = (
+        document.getElementById('haunted-houses') as HTMLInputElement
+      ).checked
       const pumpkinPatchesIsChecked = (
         document.getElementById('pumpkin-patches') as HTMLInputElement
-      ).checked;
-      if (hauntedHousesIsChecked && pumpkinPatchesIsChecked) {
-        const fn = async () => {
-          const res1 = fetch(pumpkinPatchURL, {mode: 'no-cors'});
-          const res2 = fetch(hauntedHouseURL, {mode: 'no-cors'});
-          const finalRes = await Promise.all([res1, res2]);
-          const jsonRes1 = await finalRes[0].json()
-          const jsonRes2 = await finalRes[1].json()
-          console.log(jsonRes1, jsonRes2)
-        };
+      ).checked
 
-        fn();
+      if (hauntedHousesIsChecked) {
+        service.nearbySearch(
+          {
+            location: mapCenter,
+            radius: 30000,
+            keyword: 'Haunted House',
+          },
+          (res, status) => {
+            console.log('res: ', res)
+            if (status === google.maps.places.PlacesServiceStatus.OK && res) {
+              for (var i = 0; i < res.length; i++) {
+                createMarker(res[i])
+              }
+              props.map?.setCenter(res[0]?.geometry?.location!)
+            }
+          }
+        )
       }
-
-      console.log('hauntedHousesIsChecked: ', hauntedHousesIsChecked);
-      console.log('pumpkinPatchesIsChecked: ', pumpkinPatchesIsChecked);
+      if (pumpkinPatchesIsChecked) {
+        service.nearbySearch(
+          {
+            location: mapCenter,
+            radius: 30000,
+            keyword: 'Pumpkin Patch',
+          },
+          (res, status) => {
+            console.log('res: ', res)
+            if (status === google.maps.places.PlacesServiceStatus.OK && res) {
+              for (var i = 0; i < res.length; i++) {
+                createMarker(res[i])
+              }
+              props.map?.setCenter(res[0]?.geometry?.location!)
+            }
+          }
+        )
+      }
     }
-  };
+  }
+  function createMarker(place: google.maps.places.PlaceResult) {
+    if (!place.geometry || !place.geometry.location) return
+
+    const marker = new google.maps.Marker({
+      map: props.map,
+      position: place.geometry.location,
+    })
+
+    google.maps.event.addListener(marker, 'click', () => {
+      console.log('click!', place)
+      console.log('infowindow: ', infowindow)
+      infowindow?.setContent(place.name || '')
+      infowindow?.open(props.map)
+      const markerCoords = marker.getPosition()
+      infowindow?.setPosition(markerCoords)
+    })
+  }
   return (
     <div id='mapUI' ref={mapUIRef} className='MapStuff-uiWrapper'>
       {props.map && (
@@ -51,11 +89,17 @@ const UI = (props: UIProps) => {
           <div ref={windowRef} className='UI-Window'>
             <div className='UI-Check-Box-Wrapper'>
               <div>
-                <input id='haunted-houses' type='checkbox' name='haunted-houses'></input>
+                <input
+                  id='haunted-houses'
+                  type='checkbox'
+                  name='haunted-houses'></input>
                 <label htmlFor='haunted-houses'>Haunted Houses</label>
               </div>
               <div>
-                <input id='pumpkin-patches' type='checkbox' name='pumpkin-patches'></input>
+                <input
+                  id='pumpkin-patches'
+                  type='checkbox'
+                  name='pumpkin-patches'></input>
                 <label htmlFor='pumpkin-patches'>Pumpkin Patches</label>
               </div>
               <button type='button' onClick={performNearbySearch}>
@@ -66,7 +110,7 @@ const UI = (props: UIProps) => {
         </Draggable>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default UI;
+export default UI
