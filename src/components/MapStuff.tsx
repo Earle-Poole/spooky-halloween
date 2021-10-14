@@ -7,12 +7,12 @@ import {
   mapOptions,
   restrictionBounds,
 } from './MapStuff.constants'
+import UI from './MapStuff.UI'
 
 const MapStuff = () => {
   const [storedMap, setStoredMap] = useState<google.maps.Map | null>(null)
 
   const mapRef = useRef<HTMLDivElement>(null!)
-  const mapUIRef = useRef<HTMLDivElement>(null!)
 
   useEffect(() => {
     if ('geolocation' in navigator && storedMap) {
@@ -43,7 +43,7 @@ const MapStuff = () => {
     if (!document.getElementById('googleMapsScriptTag')) {
       googleMapScript.src = `${BASE_URL}${KEY_PATH}${LIBRARIES_PATH}`
 
-      document.querySelector('.MapStuff')?.appendChild(googleMapScript)
+      document.querySelector('.App-Body')?.appendChild(googleMapScript)
 
       googleMapScript.addEventListener('load', initMap)
     }
@@ -52,7 +52,7 @@ const MapStuff = () => {
   return (
     <div className='MapStuff'>
       <div id='map' ref={mapRef} className='MapStuff-mapWrapper'></div>
-      <div id='mapUI' ref={mapUIRef} className='MapStuff-uiWrapper'></div>
+      <UI map={storedMap} />
     </div>
   )
 }
