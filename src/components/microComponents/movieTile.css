@@ -8,6 +8,7 @@
   text-align: center;
   background-color: rgb(56, 6, 6);
   border: 5px solid white;
+  cursor: pointer;
 }
 
 .movieCard:hover {
