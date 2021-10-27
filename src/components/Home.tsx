@@ -7,7 +7,7 @@ const Home = () => {
       <div className="Home">
         <span>
           Hello, this application is intended to be a fun way to practice your
-          React and TypeScript coding while celebrating Hacktoberfest 2021!
+          React and TypeScript coding while celebrating <span className='hack'>Hacktoberfest 2021!</span>
         </span>
         <br />
         <span>

@@ -1,31 +1,31 @@
 import React from "react";
 import "./css/watchList.css";
-import MovieTile from "./microComponents/MovieTile";
+import CostumeTile from "./microComponents/CostumeTile";
 import { kidsCostumesArr, adultsCostumesArr } from "./DIYCostumes.constants";
 
 const Costumes = () => {
   return (
     <div className={"Watch-List"}>
-      <div className="Kids">
+      <div className="Kids styled-scroll List-Scroll">
         {kidsCostumesArr.length === 0 ? (
           "Coming Soon"
         ) : (
           <span>Kids Costumes</span>
         )}
 
-        {kidsCostumesArr.map((movieStats) => {
-          return <MovieTile movieStats={movieStats} />;
+        {kidsCostumesArr.map((costumeInfo) => {
+          return <CostumeTile costumeInfo={costumeInfo} />;
         })}
       </div>
-      <div className="Scary">
+      <div className="Scary styled-scroll List-Scroll">
         {adultsCostumesArr.length === 0 ? (
           "Coming Soon"
         ) : (
           <span>Adults Costumes</span>
         )}
 
-        {adultsCostumesArr.map((movieStats) => {
-          return <MovieTile movieStats={movieStats} />;
+        {adultsCostumesArr.map((costumeInfo) => {
+          return <CostumeTile costumeInfo={costumeInfo} />;
         })}
       </div>
     </div>
