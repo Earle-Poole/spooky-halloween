@@ -21,16 +21,22 @@ body {
   max-height: 85px;
   display: flex;
   color: orange;
+  -webkit-text-stroke-width: .2px;
+  -webkit-text-stroke-color: black;
 }
 
 .App-Navigation {
   padding: 10px;
   max-height: 75px;
   color: orange;
+  -webkit-text-stroke-width: .2px;
+  -webkit-text-stroke-color: black;
 }
 
 .App-Body { 
   width: 100%;
   height: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }

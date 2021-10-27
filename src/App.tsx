@@ -7,6 +7,7 @@ import ScareMe from './components/ScareMe'
 import StoryTime from './components/StoryTime'
 import WatchList from './components/WatchList'
 import { Provider, useGlobalState } from './store'
+import graveyardBackground from './images/graveyard-background.png'
 
 function App() {
   const currentPage = useGlobalState('currentPage')
@@ -29,7 +30,7 @@ function App() {
   }
 
   return (
-    <div className='App'>
+    <div className='App' style={{background: `url(${graveyardBackground})`}}>
       <div className='App-Title'>Happy Halloween!</div>
       <div className='App-Navigation'>
         <Navigation />
