@@ -38,3 +38,7 @@
     font-size: 36px;
     text-transform: uppercase;
 }
+
+.costume-img {
+  object-fit: contain;
+}
