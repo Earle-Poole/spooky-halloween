@@ -5,18 +5,36 @@
     line-height: 1.5;
     overflow: hidden;
     height: 100%;
-
 }
 .InputsHere {
-    overflow-y: overlay;
     overflow-x: hidden;
     flex: 1 1 0;
+    min-width: fit-content;
     display: flex;
     flex-direction: column;
-    padding: 5PX;
+    padding: 5px 20px;
+    margin-right: 20px;
 }
-.InputsHere button {
+/* width */
+.InputsHere::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.InputsHere::-webkit-scrollbar-track {
+  background: black;
+}
+
+/* Handle */
+.InputsHere::-webkit-scrollbar-thumb {
+  background: orange;
+}
+.StoryTime button {
     margin-left: auto;
+    background: black;
+    border: 2px solid orange;
+    color: orange;
+    cursor: pointer;
 }
 .InputsHere input {
     background-color: black;
