@@ -144,7 +144,7 @@ const StoryTime = () => {
   };
   return (
     <div className="StoryTime">
-      <div className="InputsHere">
+      <div className="InputsHere styled-scroll">
         <div>
           Word List:{" "}
           <button type="button" onClick={showStoryHandler}>

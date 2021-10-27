@@ -6,16 +6,18 @@ import { kidsListArr, scaryListArr } from "./WatchList.constants";
 const WatchList = () => {
   return (
     <div className={"Watch-List"}>
-      <div className="Kids">
+      <div className="Kids styled-scroll List-Scroll">
         <span>Kids Halloween Movies</span>
         {kidsListArr.map((movieStats) => {
-          return <MovieTile movieStats={movieStats} />;
+          // uses the title as the key
+          return <MovieTile movieStats={movieStats} key={movieStats.title} />;
         })}
       </div>
-      <div className="Scary">
+      <div className="Scary styled-scroll List-Scroll">
         <span>Scary Movie List</span>
         {scaryListArr.map((movieStats) => {
-          return <MovieTile movieStats={movieStats} />;
+          // uses the title as the key
+          return <MovieTile movieStats={movieStats} key={movieStats.title} />;
         })}
       </div>
     </div>
