@@ -8,6 +8,7 @@ import StoryTime from './components/StoryTime'
 import WatchList from './components/WatchList'
 import { Provider, useGlobalState } from './store'
 import graveyardBackground from './images/graveyard-background.png'
+import DIYCostumes from './components/DIYCostumes'
 
 function App() {
   const currentPage = useGlobalState('currentPage')
@@ -22,6 +23,8 @@ function App() {
         return <StoryTime />
       case 'Watch List':
         return <WatchList />
+      case 'DIY Costumes':
+        return <DIYCostumes />
       case 'Map Stuff':
         return <MapStuff />
       default:
