@@ -16,20 +16,6 @@
     padding: 5px 20px;
     margin-right: 20px;
 }
-/* width */
-.InputsHere::-webkit-scrollbar {
-  width: 5px;
-}
-
-/* Track */
-.InputsHere::-webkit-scrollbar-track {
-  background: black;
-}
-
-/* Handle */
-.InputsHere::-webkit-scrollbar-thumb {
-  background: orange;
-}
 .StoryTime button {
     margin-left: auto;
     background: black;
