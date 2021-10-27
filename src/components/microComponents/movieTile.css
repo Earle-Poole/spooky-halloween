@@ -42,3 +42,10 @@
 .costume-img {
   object-fit: contain;
 }
+
+.costume-info {
+  color: grey;
+  font-size: 30px;
+  font-family: 'Indie Flower';
+
+}
