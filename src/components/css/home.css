@@ -5,8 +5,9 @@
   align-items: center;
   padding: 20px;
   font-size: 30px;
-  -webkit-text-stroke-width: .2px;
+  -webkit-text-stroke-width: .4px;
   -webkit-text-stroke-color: black;
+  text-align: center;
 }
 
 .background-credit {
@@ -15,4 +16,12 @@
 
 .Home > span {
   padding: 20px;
+}
+
+.hack {
+  font-size: 60px;
+  font-family: 'Indie Flower';
+  -webkit-text-stroke-width: .4px;
+  font-weight: 600;
+
 }
