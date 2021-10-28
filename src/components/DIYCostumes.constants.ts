@@ -1,6 +1,6 @@
 export const kidsCostumesArr = [
   {
-    title: "Train Conductor (in train)",
+    title: "Train Conductor",
     imgUrl: "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2019/10/1/1/Original_Jalynn-Baker_Box-Costumes-train_V.jpg.rend.hgtvcom.1280.1920.suffix/1569941125392.jpeg",
     url: "https://www.hgtv.com/lifestyle/holidays/creative-handmade-cardboard-box-halloween-costume-ideas-",
   },
@@ -97,4 +97,105 @@ export const kidsCostumesArr = [
   },
 ];
 
-export const adultsCostumesArr = [];
+export const adultsCostumesArr = [
+  {
+    title: "Spooky Skeleton",
+    imgUrl: "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2017/10/9/1/Original-Jalynn-Baker_T-shirt-Halloween-Skeleton-Beauty_V.JPG.rend.hgtvcom.1280.1920.suffix/1507584488152.jpeg",
+    url: "https://www.hgtv.com/lifestyle/holidays/5-Easy-White-T-Shirt-Halloween-Costumes",
+  },
+  {
+    title: "French Toast",
+    imgUrl: "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2019/10/1/1/Original_Jalynn-Baker_Punny-Costumes-french-toast_H.jpg.rend.hgtvcom.1280.853.suffix/1569962934856.jpeg",
+    url: "https://www.hgtv.com/lifestyle/holidays/last-minute-diy-punny-halloween-costume-ideas",
+  },
+  {
+    title: "Spicy Burrito",
+    imgUrl: "https://diy.sndimg.com/content/dam/images/diy/fullset/2013/8/12/0/CI-ManviDrona-Burrito-Halloween-Costume_v.jpg.rend.hgtvcom.1280.1707.suffix/1420803046929.jpeg",
+    url: "https://www.diynetwork.com/how-to/make-and-decorate/crafts/how-to-make-a-burrito-halloween-costume",
+  },
+  {
+    title: "Fantastic Mr. Fox",
+    imgUrl: "https://abeautifulmess.com/wp-content/uploads/typekit/.a/6a00d8358081ff69e2017d3d1f74d0970c-800wi",
+    url: "https://abeautifulmess.com/last-minute-costume-ideas-for-couples/",
+  },
+  {
+    title: "Glow-in-the-Dark Stick Figure",
+    imgUrl: "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2016/10/24/1/Original_Chelsea-Faulkner-Stick-Figure-Beauty.jpg.rend.hgtvcom.1280.1792.suffix/1477324917398.jpeg",
+    url: "https://www.hgtv.com/design/make-and-celebrate/handmade/glow-in-the-dark-stick-figure-costume-how-to",
+  },
+  {
+    title: "Solar System",
+    imgUrl: "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2020/10/7/0/Original_PopFizz_HGTVHappy_Galaxy-Family-Costume-Planet-Beauty_V.jpg.rend.hgtvcom.616.862.suffix/1602089852004.jpeg",
+    url: "https://www.hgtv.com/lifestyle/holidays/diy-family-outer-space-halloween-costume",
+  },
+  {
+    title: "Astronaut",
+    imgUrl: "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2020/10/7/0/Original_PopFizz_HGTVHappy_Galaxy-Family-Costume-Astronaut-Beauty_V.jpg.rend.hgtvcom.616.924.suffix/1602089836317.jpeg",
+    url: "https://www.hgtv.com/lifestyle/holidays/diy-family-outer-space-halloween-costume",
+  },
+  {
+    title: "Wonder Woman",
+    imgUrl: "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2018/9/24/Original_Cassidy-Garcia-superhero-boots-final-3.jpg.rend.hgtvcom.1280.1707.suffix/1537804929377.jpeg",
+    url: "https://www.hgtv.com/lifestyle/holidays/how-to-make-superhero-boots",
+  },
+  {
+    title: "Pizza Slice & Delivery Boy",
+    imgUrl: "https://studiodiy.com/wp-content/uploads/2014/10/DIY-Pizza-Slice-and-Delivery-Boy-Couples-Costume89.jpg",
+    url: "https://studiodiy.com/diy-pizza-slice-delivery-boy-couples-costume/",
+  },
+  {
+    title: "Mummy",
+    imgUrl: "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2017/10/9/1/Original-Jalynn-Baker_T-shirt-Halloween-Mummy-Beauty_V.JPG.rend.hgtvcom.1280.1920.suffix/1507584703188.jpeg",
+    url: "https://www.hgtv.com/lifestyle/holidays/5-Easy-White-T-Shirt-Halloween-Costumes",
+  },
+  {
+    title: "Holy Cow",
+    imgUrl: "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2019/10/1/1/Original_Jalynn-Baker_Punny-Costumes-holy-cow_V.jpg.rend.hgtvcom.616.924.suffix/1569962936191.jpeg",
+    url: "https://www.hgtv.com/lifestyle/holidays/last-minute-diy-punny-halloween-costume-ideas",
+  },
+  {
+    title: "Mason Jar",
+    imgUrl: "https://diy.sndimg.com/content/dam/images/diy/fullset/2014/9/17/0/CI-Kathy-Beymer_Halloween-mason-jar-costume2_v.jpg.rend.hgtvcom.616.822.suffix/1420687924416.jpeg",
+    url: "https://www.diynetwork.com/how-to/make-and-decorate/crafts/mason-jar-halloween-costume",
+  },
+  {
+    title: "Basketball Goal & Hoop",
+    imgUrl: "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2018/9/26/Original_Jalynn-Baker_laundry-basket-costumes-beauty-2_V.jpg.rend.hgtvcom.616.924.suffix/1537966308529.jpeg",
+    url: "https://www.hgtv.com/lifestyle/holidays/laundry-basket-costume-ideas",
+  },
+  {
+    title: "Ice Cream Sundae",
+    imgUrl: "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2016/10/18/3/Original_Clara-MacLellan-Ice-Cream-Sundae-Halloween-Costume-H.jpg.rend.hgtvcom.616.493.suffix/1476852167191.jpeg",
+    url: "https://www.hgtv.com/lifestyle/holidays/diy-ice-cream-sundae-halloween-costume",
+  },
+  {
+    title: "Deviled Egg",
+    imgUrl: "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2019/10/1/1/Original_Jalynn-Baker_Punny-Costumes-deviled-egg_H.jpg.rend.hgtvcom.616.411.suffix/1569962933461.jpeg",
+    url: "https://www.hgtv.com/lifestyle/holidays/last-minute-diy-punny-halloween-costume-ideas",
+  },
+  {
+    title: "Monkey Business",
+    imgUrl: "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2019/10/1/1/Original_Jalynn-Baker_Punny-Costumes-monkey-business_V.jpg.rend.hgtvcom.616.924.suffix/1569962937299.jpeg",
+    url: "https://www.hgtv.com/lifestyle/holidays/last-minute-diy-punny-halloween-costume-ideas",
+  },
+  {
+    title: "French Chef + Croquembouche",
+    imgUrl: "https://studiodiy.com/wp-content/uploads/2012/10/DIY-French-Chef-and-Croquembouche-Costume1-600x899.jpg",
+    url: "https://studiodiy.com/haunted-housewarming-our-costumes/",
+  },
+  {
+    title: "Pineapple",
+    imgUrl: "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2020/10/7/0/Original_PopFizz_HGTVHappy_T-Shirt-Costume-Pineapple-Beauty_H.jpg.rend.hgtvcom.616.411.suffix/1602089647128.jpeg",
+    url: "https://www.hgtv.com/lifestyle/holidays/last-minute-halloween-costumes-from-t-shirts",
+  },
+  {
+    title: "Coffee & Donut",
+    imgUrl: "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2018/11/01/Orig_SarahBusby_TrendingTopics_Donut-Coffee_0112_e.jpg.rend.hgtvcom.616.462.suffix/1539284057068.jpeg",
+    url: "https://www.hgtv.com/lifestyle/holidays/breakfast-themed-costumes-for-pregnant-women",
+  },
+  {
+    title: "Frankenstein's Monster",
+    imgUrl: "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2019/9/25/0/HGTV_Internal-Prod-trash-halloween-costumes-frankenstein-beauty-1.jpg.rend.hgtvcom.616.924.suffix/1569500493915.jpeg",
+    url: "https://www.hgtv.com/lifestyle/holidays/3-upcycled-halloween-costumes",
+  },
+];

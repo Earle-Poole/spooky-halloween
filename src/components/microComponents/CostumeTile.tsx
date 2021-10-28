@@ -16,7 +16,7 @@ const CostumeTile = ({ costumeInfo }: CostumeTileProps) => {
     <div className="movieCard" onClick={() => howToDIY()}>
       <img className="costume-img" width="175px" height="275px" src={costumeInfo.imgUrl} alt="" />
       <div className="movieContainer">
-        <span className="movieStatsTitle">{costumeInfo.title}</span>
+        <span className="costume-info">{costumeInfo.title}</span>
       </div>
     </div>
   );
