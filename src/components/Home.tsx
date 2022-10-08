@@ -1,27 +1,28 @@
-import React from "react";
-import "./css/home.css";
+import React from 'react'
+import './css/home.css'
 
 const Home = () => {
   return (
-    <>
-      <div className="Home">
-        <span>
-          Hello, this application is intended to be a fun way to practice your
-          React and TypeScript coding while celebrating <span className='hack'>Hacktoberfest 2021!</span>
-        </span>
-        <br />
-        <span>
-          Feel free to fork this repository, make some changes, and submit a
-          pull request!
-        </span>
-        <br />
-        <span>Please avoid purposeless pull requests. Thank you</span>
-      </div>
-      <a className="background-credit" href="https://pngtree.com/free-backgrounds">
-        Background Credit/
+    <div className='Home'>
+      <span>
+        Hello, this application is intended to be a fun way to practice your
+        React and TypeScript coding while celebrating{' '}
+        <span className='hack'>Hacktoberfest 2022!</span>
+      </span>
+      <br />
+      <span>
+        Feel free to fork this repository, make some changes, and submit a pull
+        request!
+      </span>
+      <br />
+      <span>Please avoid purposeless pull requests. Thank you</span>
+      <a
+        className='background-credit'
+        href='https://pngtree.com/free-backgrounds'>
+        Background Credit
       </a>
-    </>
-  );
-};
+    </div>
+  )
+}
 
-export default Home;
+export default Home
