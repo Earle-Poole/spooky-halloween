@@ -43,7 +43,7 @@ const MapStuff = () => {
     if (!document.getElementById('googleMapsScriptTag')) {
       googleMapScript.src = `${BASE_URL}${KEY_PATH}${LIBRARIES_PATH}`
 
-      document.querySelector('.App-Body')?.appendChild(googleMapScript)
+      document.querySelector('.Body')?.appendChild(googleMapScript)
 
       googleMapScript.addEventListener('load', initMap)
     }
