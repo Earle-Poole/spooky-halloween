@@ -31,11 +31,11 @@ function App() {
 
   return (
     <div className='App'>
-      <div className='App-Title'>Happy Halloween!</div>
-      <div className='App-Navigation'>
+      <div className='Title'>Happy Halloween!</div>
+      <div className='Navigation'>
         <Navigation />
       </div>
-      <div className='App-Body'>
+      <div className='Body'>
         <PageBySelection />
       </div>
     </div>
