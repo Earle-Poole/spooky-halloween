@@ -7,6 +7,8 @@ import StoryTime from './components/StoryTime'
 import WatchList from './components/WatchList'
 import { Provider, useGlobalState } from './store'
 import DIYCostumes from './components/DIYCostumes'
+import { PageOptions } from './constants/Home.constants'
+import SpookySays from './components/SpookySays'
 
 function App() {
   const currentPage = useGlobalState('currentPage')
@@ -14,16 +16,18 @@ function App() {
     switch (currentPage) {
       case 'Home':
         return <Home />
-      case 'Scare Me!':
+      case PageOptions.HOME:
         return <ScareMe />
-      case `Let's Make A Story`:
+      case PageOptions.SCARE_ME:
         return <StoryTime />
-      case 'Watch List':
+      case PageOptions.STORY_TIME:
         return <WatchList />
-      case 'DIY Costumes':
+      case PageOptions.WATCH_LIST:
         return <DIYCostumes />
-      case 'Map Stuff':
+      case PageOptions.DIY_COSTUMES:
         return <MapStuff />
+      case PageOptions.SPOOKY_SAYS:
+        return <SpookySays />
       default:
         return null
     }
