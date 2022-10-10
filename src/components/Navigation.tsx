@@ -20,11 +20,13 @@ const Navigation = () => {
     dispatch({ type: 'SET_CURRENT_PAGE', payload: option })
   }
   return (
-    <div className='Navigation'>
+    <div className='flex gap-4'>
       {navigationOptions.map((option) => {
         return (
           <div
-            className={'Navigation-Option'}
+            className={
+              'text-3xl cursor-pointer text-orange-500 underline text-shadow-outline decoration-orange-500 hover:animate-shake'
+            }
             key={option}
             onClick={(e) => onClickHandler(e, option)}>
             {option}

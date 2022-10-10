@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import './css/scareMe.css'
+import { useEffect } from 'react'
 
 const techSupportGoreURL =
   'https://www.reddit.com/r/techsupportgore/random.json'
@@ -14,12 +13,19 @@ const clearAndSetReceivedImage = (url: string) => {
   const img = document.createElement('img')
   const span = document.createElement('span')
 
-  span.innerHTML = 'Click the image to get another random spook!'
+  span.innerHTML = '(Click the image to get another random spook!)'
+  span.classList.add(
+    'italic',
+    'text-orange-500',
+    'text-shadow-outline',
+    'text-md'
+  )
   img.setAttribute('src', url)
   img.onclick = () => {
     getRandomTechSupportGorePost()
   }
-  const scareMe = document.querySelector('.Scare-Me')
+  img.classList.add('max-w-2xl', 'cursor-pointer', 'p-5')
+  const scareMe = document.getElementById('scare-me')
 
   if (scareMe) {
     scareMe.innerHTML = ''
@@ -55,7 +61,11 @@ const ScareMe = () => {
     getRandomTechSupportGorePost()
   }, [])
 
-  return <div className='Scare-Me'></div>
+  return (
+    <div
+      id='scare-me'
+      className='flex flex-col items-center [overflow:overlay]'></div>
+  )
 }
 
 export default ScareMe

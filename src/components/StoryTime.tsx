@@ -1,59 +1,59 @@
-import React, { useCallback, useEffect, useState } from "react";
-import "./css/storyTime.css";
+import React, { useCallback, useEffect, useState } from 'react'
+import './css/storyTime.css'
 
-const initialStoryValues = [
-  ["Adjective", ""],
-  ["Adjective", ""],
-  ["Number", ""],
-  ["A Spooky Character", ""],
-  ["Emotion", ""],
-  ["Action Verb", ""],
-  ["Noise", ""],
-  ["Same Noise", ""],
-  ["Action Verb, Past Tense", ""],
-  ["Different Noise", ""],
-  ["Adjective", ""],
-  ["Adjective", ""],
-  ["Verb, Past Tense", ""],
-  ["Same Spooky Character", ""],
-  ["Item of Furniture", ""],
-  ["Same Item", ""],
-  ["Candy Name", ""],
-  ["Candy Name", ""],
-  ["Creature", ""],
-  ["Action Verb, Past Tense", ""],
-  ["Sound", ""],
-  ["Food Verb", ""],
-  ["Meal", ""],
-];
+const initialStoryValues: [string, string][] = [
+  ['Adjective', ''],
+  ['Adjective', ''],
+  ['Number', ''],
+  ['A Spooky Character', ''],
+  ['Emotion', ''],
+  ['Action Verb', ''],
+  ['Noise', ''],
+  ['Same Noise', ''],
+  ['Action Verb, Past Tense', ''],
+  ['Different Noise', ''],
+  ['Adjective', ''],
+  ['Adjective', ''],
+  ['Verb, Past Tense', ''],
+  ['Same Spooky Character', ''],
+  ['Item of Furniture', ''],
+  ['Same Item', ''],
+  ['Candy Name', ''],
+  ['Candy Name', ''],
+  ['Creature', ''],
+  ['Action Verb, Past Tense', ''],
+  ['Sound', ''],
+  ['Food Verb', ''],
+  ['Meal', ''],
+]
 
 const StoryTime = () => {
-  const [storyValues, setStoryValues] = useState(initialStoryValues);
-  const [showStory, setShowStory] = useState<boolean>(false);
-  const [readStory, setReadStory] = useState<boolean>(false);
+  const [storyValues, setStoryValues] = useState(initialStoryValues)
+  const [showStory, setShowStory] = useState<boolean>(false)
+  const [readStory, setReadStory] = useState<boolean>(false)
   const onChangeHandler =
     (index: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
       setStoryValues(
         storyValues.map((row, i) =>
           index === i ? [row[0], e.target.value] : row
         )
-      );
-    };
-  const wordRow = (word: string[], index: number) => {
+      )
+    }
+  const wordRow = (word: [string, string], index: number) => {
     return (
-      <div className="WordRow" key={`${word[0]}-${index}`}>
+      <div className='WordRow' key={`${word[0]}-${index}`}>
         <span>{word[0]}:</span>
         <input
-          type="text"
+          type='text'
           value={word[1]}
           onChange={onChangeHandler(index)}
           maxLength={12}
         />
       </div>
-    );
-  };
+    )
+  }
   const story = useCallback(() => {
-    const mutableStoaryValues = [...storyValues];
+    const mutableStoaryValues = [...storyValues]
     const story = `It was a ${`<mark>${
       mutableStoaryValues.shift()?.[1]
     }</mark>`} and ${`<mark>${
@@ -112,54 +112,54 @@ const StoryTime = () => {
               mutableStoaryValues.shift()?.[1]
             }</mark>`} you for ${`<mark>${
       mutableStoaryValues.shift()?.[1]
-    }</mark>`}!`;
-    return story;
-  }, [storyValues]);
+    }</mark>`}!`
+    return story
+  }, [storyValues])
   const showStoryHandler = () => {
     if (
       storyValues.filter((value) => value[1].length).length ===
       storyValues.length
     ) {
-      setShowStory(true);
-      setReadStory(true);
+      setShowStory(true)
+      setReadStory(true)
     } else {
-      alert("First finish the form.");
+      alert('First finish the form.')
     }
-  };
-  const synth = window.speechSynthesis;
+  }
+  const synth = window.speechSynthesis
   useEffect(() => {
     if (readStory) {
-      const utterThis = new SpeechSynthesisUtterance(story());
-      utterThis.rate = 1.2;
-      synth.speak(utterThis);
+      const utterThis = new SpeechSynthesisUtterance(story())
+      utterThis.rate = 1.2
+      synth.speak(utterThis)
     }
-  }, [story, readStory, synth]);
+  }, [story, readStory, synth])
   const audioHandler = () => {
     if (readStory) {
-      synth.pause();
-      setReadStory(false);
+      synth.pause()
+      setReadStory(false)
     } else {
-      setReadStory(true);
+      setReadStory(true)
     }
-  };
+  }
   return (
-    <div className="StoryTime">
-      <div className="InputsHere styled-scroll">
+    <div className='StoryTime'>
+      <div className='InputsHere styled-scroll'>
         <div>
-          Word List:{" "}
-          <button type="button" onClick={showStoryHandler}>
+          Word List:{' '}
+          <button type='button' onClick={showStoryHandler}>
             Show Story
           </button>
         </div>
         {storyValues.map((word, index: number) => wordRow(word, index))}
       </div>
-      <div className="StoryHere">
+      <div className='StoryHere'>
         {showStory && (
           <>
             <div>
-              Your Story:{" "}
-              <button type="button" onClick={audioHandler}>
-                {readStory ? "Stop" : "Play"}
+              Your Story:{' '}
+              <button type='button' onClick={audioHandler}>
+                {readStory ? 'Stop' : 'Play'}
               </button>
             </div>
             <div dangerouslySetInnerHTML={{ __html: story() }} />
@@ -167,7 +167,7 @@ const StoryTime = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default StoryTime;
+export default StoryTime
