@@ -1,8 +1,17 @@
 import React from 'react'
+import { PageOptions } from '../constants/Home.constants'
 import { useGlobalDispatch } from '../store'
 import './css/navigation.css'
 
-const navigationOptions = ['Home', 'Scare Me!', `Let's Make A Story`, 'Watch List', 'DIY Costumes', 'Map Stuff']
+const navigationOptions = [
+  PageOptions.HOME,
+  PageOptions.SCARE_ME,
+  PageOptions.STORY_TIME,
+  PageOptions.WATCH_LIST,
+  PageOptions.DIY_COSTUMES,
+  PageOptions.MAP_STUFF,
+  PageOptions.SPOOKY_SAYS,
+]
 
 const Navigation = () => {
   const dispatch = useGlobalDispatch()
