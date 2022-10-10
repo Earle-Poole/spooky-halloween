@@ -14,17 +14,17 @@ function App() {
   const currentPage = useGlobalState('currentPage')
   const PageBySelection = () => {
     switch (currentPage) {
-      case 'Home':
-        return <Home />
       case PageOptions.HOME:
-        return <ScareMe />
+        return <Home />
       case PageOptions.SCARE_ME:
-        return <StoryTime />
+        return <ScareMe />
       case PageOptions.STORY_TIME:
-        return <WatchList />
+        return <StoryTime />
       case PageOptions.WATCH_LIST:
-        return <DIYCostumes />
+        return <WatchList />
       case PageOptions.DIY_COSTUMES:
+        return <DIYCostumes />
+      case PageOptions.MAP_STUFF:
         return <MapStuff />
       case PageOptions.SPOOKY_SAYS:
         return <SpookySays />
@@ -34,14 +34,14 @@ function App() {
   }
 
   return (
-    <div className='App'>
-      <div className='Title'>Happy Halloween!</div>
-      <div className='Navigation'>
+    <div className='App gap-4'>
+      <div className='text-orange-500 text-shadow-outline text-7xl leading-normal'>
+        Happy Halloween!
+      </div>
+      <div>
         <Navigation />
       </div>
-      <div className='Body'>
-        <PageBySelection />
-      </div>
+      <PageBySelection />
     </div>
   )
 }

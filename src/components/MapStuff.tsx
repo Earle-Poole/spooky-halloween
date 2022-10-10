@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import './css/mapStuff.css'
 import {
   BASE_URL,
@@ -10,6 +10,10 @@ import {
 import UI from './MapStuff.UI'
 
 const MapStuff = () => {
+  console.log(
+    'process.env.REACT_APP_gMapAPIKey: ',
+    process.env.REACT_APP_gMapAPIKey
+  )
   const [storedMap, setStoredMap] = useState<google.maps.Map | null>(null)
 
   const mapRef = useRef<HTMLDivElement>(null!)
@@ -55,6 +59,15 @@ const MapStuff = () => {
     },
     []
   )
+
+  if (!process.env.REACT_APP_gMapAPIKey) {
+    return (
+      <div className='MapStuff'>
+        A Google Map API key was no provided. Please add one to the environment
+        variable file under "REACT_APP_gMapAPIKey"
+      </div>
+    )
+  }
 
   return (
     <div className='MapStuff'>
