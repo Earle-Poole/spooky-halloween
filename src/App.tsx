@@ -9,6 +9,7 @@ import { Provider, useGlobalState } from './store'
 import DIYCostumes from './components/DIYCostumes'
 import { PageOptions } from './constants/Home.constants'
 import SpookySays from './components/SpookySays'
+import MemoryGame from './components/MemoryGame'
 
 function App() {
   const currentPage = useGlobalState('currentPage')
@@ -28,6 +29,8 @@ function App() {
         return <MapStuff />
       case PageOptions.SPOOKY_SAYS:
         return <SpookySays />
+      case PageOptions.MEMORY_GAME:
+          return <MemoryGame />
       default:
         return null
     }
