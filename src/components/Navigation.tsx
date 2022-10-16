@@ -11,6 +11,7 @@ const navigationOptions = [
   PageOptions.DIY_COSTUMES,
   PageOptions.MAP_STUFF,
   PageOptions.SPOOKY_SAYS,
+  PageOptions.MEMORY_GAME,
 ]
 
 const Navigation = () => {

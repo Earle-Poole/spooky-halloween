@@ -6,4 +6,5 @@ export enum PageOptions {
   DIY_COSTUMES = 'DIY Costumes',
   MAP_STUFF = 'Map Stuff',
   SPOOKY_SAYS = 'Spooky Says',
+  MEMORY_GAME = 'Memory Game'
 }
