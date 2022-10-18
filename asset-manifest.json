@@ -1,21 +1,14 @@
 {
   "files": {
-    "main.css": "./static/css/main.8d75fe56.chunk.css",
-    "main.js": "./static/js/main.88db36bc.chunk.js",
-    "main.js.map": "./static/js/main.88db36bc.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.05c6dac6.js",
-    "runtime-main.js.map": "./static/js/runtime-main.05c6dac6.js.map",
-    "static/js/2.271aba71.chunk.js": "./static/js/2.271aba71.chunk.js",
-    "static/js/2.271aba71.chunk.js.map": "./static/js/2.271aba71.chunk.js.map",
+    "main.css": "./static/css/main.35f614a2.css",
+    "main.js": "./static/js/main.68ef606a.js",
+    "static/media/graveyard-background.png": "./static/media/graveyard-background.9a987cacede36709ffd7.png",
     "index.html": "./index.html",
-    "static/css/main.8d75fe56.chunk.css.map": "./static/css/main.8d75fe56.chunk.css.map",
-    "static/js/2.271aba71.chunk.js.LICENSE.txt": "./static/js/2.271aba71.chunk.js.LICENSE.txt",
-    "static/media/graveyard-background.9a987cac.png": "./static/media/graveyard-background.9a987cac.png"
+    "main.35f614a2.css.map": "./static/css/main.35f614a2.css.map",
+    "main.68ef606a.js.map": "./static/js/main.68ef606a.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.05c6dac6.js",
-    "static/js/2.271aba71.chunk.js",
-    "static/css/main.8d75fe56.chunk.css",
-    "static/js/main.88db36bc.chunk.js"
+    "static/css/main.35f614a2.css",
+    "static/js/main.68ef606a.js"
   ]
 }
