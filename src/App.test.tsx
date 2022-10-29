@@ -1,9 +1,15 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import { render } from '@testing-library/react'
+import App from './App'
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+describe('App', () => {
+  it('renders without error', () => {
+    const { baseElement } = render(App)
+    expect(baseElement).toBeInTheDocument()
+  })
+
+  it('renders the navigation', async () => {
+    const { queryByTestId } = render(App)
+    const navigation = queryByTestId('navigation')
+    expect(navigation).toBeInTheDocument()
+  })
+})

@@ -14,6 +14,7 @@ const getRandomButtonOrder = (num: number) => {
   return arr
 }
 
+// Refactor the logic behind how the rounds work
 const SpookySays = () => {
   /**
    * `currentRound` statuses --
@@ -21,7 +22,7 @@ const SpookySays = () => {
    * 0: Game not started
    * >1: Game started, current round
    */
-  const [currentRound, setCurrentRound] = useState(4)
+  const [currentRound, setCurrentRound] = useState(0)
   const [spookyList, setSpookyList] = useState(getRandomButtonOrder(10))
   const [answer, setAnswer] = useState<SpookyButton[]>([])
   const [currentFeedback, setCurrentFeedback] = useState<SpookyButton | null>(
@@ -105,7 +106,6 @@ const SpookySays = () => {
           Start Game
         </button>
       )}
-      {currentRound > 0 && <></>}
       <div className='flex flex-wrap h-fit gap-5'>
         {spookyButtonsList.map((b) => (
           <button

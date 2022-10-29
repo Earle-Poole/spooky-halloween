@@ -5,7 +5,7 @@ import Navigation from './components/Navigation'
 import ScareMe from './components/ScareMe'
 import StoryTime from './components/StoryTime'
 import WatchList from './components/WatchList'
-import { Provider, useGlobalState } from './store'
+import { useGlobalState, withGlobalState } from './store'
 import DIYCostumes from './components/DIYCostumes'
 import { PageOptions } from './constants/Home.constants'
 import SpookySays from './components/SpookySays'
@@ -41,20 +41,10 @@ function App() {
       <div className='text-orange-500 text-shadow-outline text-7xl leading-normal'>
         Happy Halloween!
       </div>
-      <div>
-        <Navigation />
-      </div>
+      <Navigation />
       <PageBySelection />
     </div>
   )
 }
 
-const AppWrappedInProvider = () => {
-  return (
-    <Provider>
-      <App />
-    </Provider>
-  )
-}
-
-export default AppWrappedInProvider
+export default withGlobalState(App)

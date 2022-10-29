@@ -21,7 +21,7 @@ const Navigation = () => {
     dispatch({ type: 'SET_CURRENT_PAGE', payload: option })
   }
   return (
-    <div className='flex gap-4'>
+    <div data-testid='navigation' className='flex gap-4'>
       {navigationOptions.map((option) => {
         return (
           <div
