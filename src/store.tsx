@@ -17,3 +17,11 @@ export const useGlobalDispatch = () => useContext(dispatchCtx)
 
 export const useGlobalState = <K extends keyof State>(propertyOne: K) =>
   useContext(stateCtx)[propertyOne]
+
+export const withGlobalState = (Component: React.ComponentType) => {
+  return (
+    <Provider>
+      <Component />
+    </Provider>
+  )
+}
