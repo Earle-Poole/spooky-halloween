@@ -155,6 +155,7 @@ const MemoryGameBoard: FC<MemoryGameBoardProps> = ({ setGameIsStarted }) => {
               className={
                 matchedList.includes(option) ? "gameCard invisible" : "gameCard"
               }
+              data-option={option}
               key={option + index}
               onClick={selectImage(index)}
             >
